@@ -1,0 +1,4 @@
+﻿  Shengals_Pract1.cpp
+C:\Users\st310-07\Desktop\ShengalsPr24\Shengals_Pract1\Shengals_Pract1.cpp(6,35): warning C4101: b: неиспользованная локальная переменная
+C:\Users\st310-07\Desktop\ShengalsPr24\Shengals_Pract1\Shengals_Pract1.cpp(6,9): warning C4101: polindrom: неиспользованная локальная переменная
+  Shengals_Pract1.vcxproj -> C:\Users\st310-07\Desktop\ShengalsPr24\Shengals_Pract1\x64\Debug\Shengals_Pract1.exe
