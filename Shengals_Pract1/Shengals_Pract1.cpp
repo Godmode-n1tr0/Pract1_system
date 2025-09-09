@@ -1,50 +1,55 @@
 ﻿#include <iostream>
+using namespace std;
 
-int main()
-{
+bool Palindrome(int num) {
+    int rev = 0, orig = num, last;
+    while (num > 0) {
+        last = num % 10;
+        rev = rev * 10 + last;
+        num /= 10;
+    }
+    return rev == orig;
+}
+
+int sumchet(int num) {
+    int sum = 0;
+    while (num > 0) {
+        int d = num % 10;
+        if (d % 2 == 0) sum += d;
+        num /= 10;
+    }
+    return sum;
+}
+
+int sumnechet(int num) {
+    int sum = 0;
+    while (num > 0) {
+        int d = num % 10;
+        if (d % 2 != 0) sum += d;
+        num /= 10;
+    }
+    return sum;
+}
+
+int main() {
     setlocale(0, "rus");
-    int polindrom, orig, x, last, b, chislo = 0, count = 0;
-    int a = 0;
-    int chetnoe = 0;
-    int nchetnoe = 0;
-    int revers = 0;
-    std::cout << "Введите число: ";
-    std::cin >> x;
-    while (a != 1) {
-        count++;
-        system("cls");
-        x += chislo;
-        orig = x;
-        while (x != 0) {
-            last = x % 10;
-            revers = revers * 10 + last;
-            x = x / 10;
-            if (count == 1) {
-                if (last % 2 == 0) {
-                    chetnoe += last;
-                }
-            }
-            else if (count == 2) {
-                if (last % 2 != 0) {
-                    nchetnoe += last;
-                }
-                count = 0;
-            }
-        }
-        orig += chetnoe;
-        orig += nchetnoe;
-        chetnoe = 0;
-        nchetnoe = 0;
-        if (orig == revers) {
-            std::cout << "Число полиндром!";
-            a = 1;
+    int x;
+    cout << "Введите число: ";
+    cin >> x;
+
+    bool addEven = true;
+
+    while (!Palindrome(x)) {
+        if (addEven) {
+            x += sumchet(x);
         }
         else {
-            x = orig;
-            std::cout << "Число "<<x<<" не полиндром продолжаем дальше!\n";
-            int aaaaaa;
-            std::cin >> aaaaaa;
-            revers = 0;
+            x += sumnechet(x);
         }
+        addEven = !addEven;
+        cout << "Текущее число: " << x << endl;
     }
+
+    cout << "Получен палиндром: " << x << endl;
+    return 0;
 }
